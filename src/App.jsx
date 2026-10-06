@@ -1,4 +1,3 @@
-
 import { Suspense, lazy, useEffect, useState } from "react";
 
 import {
@@ -42,7 +41,7 @@ import Indexdash from "./dashboard/pages-dash/Indexdash";
 import Homeproject from "./dashboard/pages-dash/Homeproject";
 import Worksdash from "./dashboard/pages-dash/Worksdash";
 import Servicesdash from "./dashboard/pages-dash/Servicesdash";
-import Whyus from "./dashboard/pages-dash/whyus.jsx";
+import Whyus from "./dashboard/pages-dash/Whyus";
 
 const Home = lazy(() => import("./pages/index/Home"));
 const Services = lazy(() => import("./pages/index/Services"));
@@ -193,10 +192,7 @@ function App() {
     document.addEventListener("keydown", handleEscape);
 
     return () => {
-      document.removeEventListener(
-        "keydown",
-        handleEscape
-      );
+      document.removeEventListener("keydown", handleEscape);
     };
   }, []);
 
@@ -239,7 +235,6 @@ function App() {
   const copyText = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-
       alert("تم النسخ بنجاح");
     } catch (error) {
       console.error(error);
@@ -283,7 +278,6 @@ function App() {
   const downloadImage = async (src) => {
     try {
       const response = await fetch(src);
-
       const blob = await response.blob();
 
       const url = URL.createObjectURL(blob);
@@ -291,7 +285,6 @@ function App() {
       const link = document.createElement("a");
 
       link.href = url;
-
       link.download = "website-image";
 
       document.body.appendChild(link);
@@ -362,7 +355,7 @@ function App() {
 
   const openDashboard = () => {
     window.location.href =
-      "/dashboard/index-dash_WORKUP-comPanY";
+      "/index-dash_WORKUP-comPanY";
 
     closeContextMenu();
   };
@@ -721,7 +714,6 @@ function App() {
                     text="ملء شاشة الفيديو"
                     onClick={() => {
                       contextMenu.element?.requestFullscreen();
-
                       closeContextMenu();
                     }}
                   />
